@@ -1,0 +1,14 @@
+<?php
+$dsn = 'mysql:host=localhost;dbname=movie_db';
+$username = 'root';
+$password = '';
+
+try {
+    $db = new PDO($dsn, $username, $password);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    $error_message = $e->getMessage();
+    echo "<p>Database connection error: " . htmlspecialchars($error_message) . "</p>";
+    exit();
+}
+?>
