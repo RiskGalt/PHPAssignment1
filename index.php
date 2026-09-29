@@ -6,18 +6,10 @@ $statement = $db->prepare($query);
 $statement->execute();
 $movies = $statement->fetchAll(PDO::FETCH_ASSOC);
 $statement->closeCursor();
+
+include('header.php');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie List - PHPAssignment1</title>
-    <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-    <h1>Movie Database</h1>
+<main>
     <table>
         <thead>
             <tr>
@@ -40,5 +32,5 @@ $statement->closeCursor();
             <?php endforeach; ?>
         </tbody>
     </table>
-</body>
-</html>
+</main>
+<?php include('footer.php'); ?>
